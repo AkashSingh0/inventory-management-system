@@ -58,7 +58,7 @@ A full-stack Inventory & Order Management System built with React, FastAPI, Post
 
 ### Frontend
 
-YOUR_VERCEL_URL
+[YOUR_VERCEL_URL](https://inventory-management-system-one-opal.vercel.app/)
 
 ### Backend API
 
