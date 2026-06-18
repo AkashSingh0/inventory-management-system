@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --card-shadow-hover: 0 10px 25px -5px rgb(79 70 229 / 0.12), 0 4px 6px -4px rgb(0 0 0 / 0.06);
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Smooth transitions */
+button,
+a,
+input,
+textarea,
+select {
+  @apply transition-all duration-200;
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/40;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-sm;
+    box-shadow: var(--card-shadow);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-200/60;
+  }
+
+  .card-hover:hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 hover:shadow-md active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm hover:border-slate-300 hover:bg-slate-50 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg px-3 py-1.5 text-sm font-medium active:scale-[0.98];
+  }
+
+  .btn-ghost-indigo {
+    @apply inline-flex items-center justify-center rounded-lg px-3 py-1.5 text-sm font-medium text-indigo-600 hover:bg-indigo-50 active:scale-[0.98];
+  }
+
+  .btn-ghost-danger {
+    @apply inline-flex items-center justify-center rounded-lg px-3 py-1.5 text-sm font-medium text-red-600 hover:bg-red-50 active:scale-[0.98];
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 py-2.5 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-500/10;
+  }
+
+  .input-error {
+    @apply border-red-300 focus:border-red-400 focus:ring-red-500/10;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-slate-700;
+  }
+
+  .page-header {
+    @apply mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold tracking-tight text-slate-900;
+  }
+
+  .page-subtitle {
+    @apply mt-1 text-sm text-slate-500;
+  }
+
+  .table-wrap {
+    @apply overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm;
+  }
+
+  .badge-success {
+    @apply inline-flex rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-700;
+  }
+
+  .badge-warning {
+    @apply inline-flex rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-700;
+  }
+
+  .stat-card {
+    @apply relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-200/60;
+    box-shadow: var(--card-shadow);
+  }
+
+  .stat-card:hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .stat-card-glow {
+    @apply pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full opacity-20 blur-2xl;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
