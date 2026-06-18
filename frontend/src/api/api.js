@@ -48,7 +48,7 @@ export function getErrorMessage(error) {
 }
 
 // Dashboard
-export const getDashboard = () => api.get('/dashboard/');
+export const getDashboard = () => api.get('/dashboard');
 
 // Products
 export const getProducts = () => api.get('/products');
